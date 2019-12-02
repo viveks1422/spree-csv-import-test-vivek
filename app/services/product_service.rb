@@ -75,7 +75,6 @@ class ProductService
 	    #Notification email when import complated
 	    ProductMailer.products_import_completed(admin_email, import_errors).deliver!
 	    #Live push notificaiton
-	    
 	end
 
 	def trim_string(input_string)
