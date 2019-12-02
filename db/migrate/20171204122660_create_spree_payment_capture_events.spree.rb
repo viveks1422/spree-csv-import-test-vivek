@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140205120320)
 class CreateSpreePaymentCaptureEvents < ActiveRecord::Migration[4.2]
   def change

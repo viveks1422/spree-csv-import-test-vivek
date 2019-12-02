@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20121126040517)
 class AddLastIpToSpreeOrders < ActiveRecord::Migration[4.2]
   def change

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130909115621)
 class ChangeStatesRequiredForCountries < ActiveRecord::Migration[4.2]
   def up

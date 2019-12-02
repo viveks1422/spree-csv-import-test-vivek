@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140702140656)
 class CreateSpreeReturnAuthorizationInventoryUnit < ActiveRecord::Migration[4.2]
   def change

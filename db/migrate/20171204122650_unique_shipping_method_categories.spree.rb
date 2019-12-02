@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20131211192741)
 class UniqueShippingMethodCategories < ActiveRecord::Migration[4.2]
   def change
@@ -5,11 +7,11 @@ class UniqueShippingMethodCategories < ActiveRecord::Migration[4.2]
     columns = %w[shipping_category_id shipping_method_id]
 
     say "Find duplicate #{klass} records"
-    duplicates = klass.
-      select((columns + %w[COUNT(*)]).join(',')).
-      group(columns.join(',')).
-      having('COUNT(*) > 1').
-      map { |row| row.attributes.slice(*columns) }
+    duplicates = klass
+                 .select((columns + %w[COUNT(*)]).join(','))
+                 .group(columns.join(','))
+                 .having('COUNT(*) > 1')
+                 .map { |row| row.attributes.slice(*columns) }
 
     say "Delete all but the oldest duplicate #{klass} record"
     duplicates.each do |conditions|

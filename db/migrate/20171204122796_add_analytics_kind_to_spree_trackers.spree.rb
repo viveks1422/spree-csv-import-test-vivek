@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170722102643)
 class AddAnalyticsKindToSpreeTrackers < ActiveRecord::Migration[5.1]
   def change

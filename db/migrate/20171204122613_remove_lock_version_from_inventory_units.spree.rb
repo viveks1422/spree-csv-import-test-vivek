@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130711200933)
 class RemoveLockVersionFromInventoryUnits < ActiveRecord::Migration[4.2]
   def change

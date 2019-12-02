@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20160509064646)
 class RemoveCounterCacheFromSpreeVariantsToSpreeStockItems < ActiveRecord::Migration[4.2]
   def up
@@ -6,6 +8,5 @@ class RemoveCounterCacheFromSpreeVariantsToSpreeStockItems < ActiveRecord::Migra
     end
   end
 
-  def down
-  end
+  def down; end
 end

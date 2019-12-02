@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170320142750)
 class AddUniqueIndexOnNumberToSpreeReturnAuthorizations < ActiveRecord::Migration[5.0]
   def change
@@ -10,7 +12,9 @@ class AddUniqueIndexOnNumberToSpreeReturnAuthorizations < ActiveRecord::Migratio
         authorization.save
       end
 
-      remove_index :spree_return_authorizations, :number if index_exists?(:spree_return_authorizations, :number)
+      if index_exists?(:spree_return_authorizations, :number)
+        remove_index :spree_return_authorizations, :number
+      end
       add_index :spree_return_authorizations, :number, unique: true
     end
   end

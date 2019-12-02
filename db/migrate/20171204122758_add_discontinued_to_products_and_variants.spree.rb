@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20150819154308)
 class AddDiscontinuedToProductsAndVariants < ActiveRecord::Migration[4.2]
   def up
@@ -60,8 +62,8 @@ We will print out a report of the data we are fixing now: "
   end
 
   def down
-    execute "UPDATE spree_products SET deleted_at = discontinue_on WHERE deleted_at IS NULL"
-    execute "UPDATE spree_variants SET deleted_at = discontinue_on WHERE deleted_at IS NULL"
+    execute 'UPDATE spree_products SET deleted_at = discontinue_on WHERE deleted_at IS NULL'
+    execute 'UPDATE spree_variants SET deleted_at = discontinue_on WHERE deleted_at IS NULL'
 
     remove_column :spree_products, :discontinue_on
     remove_column :spree_variants, :discontinue_on

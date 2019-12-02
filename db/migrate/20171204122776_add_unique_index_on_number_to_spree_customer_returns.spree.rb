@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170320145040)
 class AddUniqueIndexOnNumberToSpreeCustomerReturns < ActiveRecord::Migration[5.0]
   def change
@@ -10,7 +12,9 @@ class AddUniqueIndexOnNumberToSpreeCustomerReturns < ActiveRecord::Migration[5.0
         r.save
       end
 
-      remove_index :spree_customer_returns, :number if index_exists?(:spree_customer_returns, :number)
+      if index_exists?(:spree_customer_returns, :number)
+        remove_index :spree_customer_returns, :number
+      end
       add_index :spree_customer_returns, :number, unique: true
     end
   end

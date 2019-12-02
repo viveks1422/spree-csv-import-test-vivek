@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140713142214)
 class RenameReturnAuthorizationReason < ActiveRecord::Migration[4.2]
   def change

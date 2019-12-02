@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20131026154747)
 class AddTrackInventoryToVariant < ActiveRecord::Migration[4.2]
   def change

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_auth (originally 20150416152553)
 class AddMissingIndicesOnUser < SpreeExtension::Migration[4.2]
   def change

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_auth (originally 20140904000425)
 class AddDeletedAtToUsers < SpreeExtension::Migration[4.2]
   def change

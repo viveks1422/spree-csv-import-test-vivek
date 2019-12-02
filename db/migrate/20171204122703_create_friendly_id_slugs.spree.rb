@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140718195325)
 class CreateFriendlyIdSlugs < ActiveRecord::Migration[4.2]
   def change
@@ -9,8 +11,8 @@ class CreateFriendlyIdSlugs < ActiveRecord::Migration[4.2]
       t.datetime :created_at
     end
     add_index :friendly_id_slugs, :sluggable_id
-    add_index :friendly_id_slugs, [:slug, :sluggable_type]
-    add_index :friendly_id_slugs, [:slug, :sluggable_type, :scope], unique: true
+    add_index :friendly_id_slugs, %i[slug sluggable_type]
+    add_index :friendly_id_slugs, %i[slug sluggable_type scope], unique: true
     add_index :friendly_id_slugs, :sluggable_type
   end
 end

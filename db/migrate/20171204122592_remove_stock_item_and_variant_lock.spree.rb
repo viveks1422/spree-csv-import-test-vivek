@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130329134939)
 class RemoveStockItemAndVariantLock < ActiveRecord::Migration[4.2]
   def up

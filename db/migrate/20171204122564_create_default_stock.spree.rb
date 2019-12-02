@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130213191427)
 class CreateDefaultStock < ActiveRecord::Migration[4.2]
   def up

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140518174634)
 class AddTokenToSpreeOrders < ActiveRecord::Migration[4.2]
   def change

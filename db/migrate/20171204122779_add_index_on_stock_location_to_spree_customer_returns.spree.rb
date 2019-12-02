@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170329110859)
 class AddIndexOnStockLocationToSpreeCustomerReturns < ActiveRecord::Migration[5.0]
   def change

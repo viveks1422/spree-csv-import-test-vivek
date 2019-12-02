@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130228210442)
 class CreateShippingMethodZone < ActiveRecord::Migration[4.2]
   class ShippingMethodZone < ApplicationRecord

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140530024945)
 class MoveOrderTokenFromTokenizedPermission < ActiveRecord::Migration[4.2]
   class Spree::TokenizedPermission < Spree::Base
@@ -25,6 +27,5 @@ class MoveOrderTokenFromTokenizedPermission < ActiveRecord::Migration[4.2]
     end
   end
 
-  def down
-  end
+  def down; end
 end

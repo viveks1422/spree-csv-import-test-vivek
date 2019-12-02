@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170316154338)
 class AddUniqueIndexOnNumberToSpreeStockTransfer < ActiveRecord::Migration[5.0]
   def change
@@ -10,7 +12,9 @@ class AddUniqueIndexOnNumberToSpreeStockTransfer < ActiveRecord::Migration[5.0]
         transfer.save
       end
 
-      remove_index :spree_stock_transfers, :number if index_exists?(:spree_stock_transfers, :number)
+      if index_exists?(:spree_stock_transfers, :number)
+        remove_index :spree_stock_transfers, :number
+      end
       add_index :spree_stock_transfers, :number, unique: true
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170331123832)
 class AddIndexToShippingMethodZones < ActiveRecord::Migration[5.0]
   def change
@@ -10,9 +12,9 @@ class AddIndexToShippingMethodZones < ActiveRecord::Migration[5.0]
       zones.map(&:destroy)
     end
 
-    if index_exists? :spree_shipping_method_zones, [:shipping_method_id, :zone_id]
-      remove_index :spree_shipping_method_zones, [:shipping_method_id, :zone_id]
-      add_index :spree_shipping_method_zones, [:shipping_method_id, :zone_id], unique: true
+    if index_exists? :spree_shipping_method_zones, %i[shipping_method_id zone_id]
+      remove_index :spree_shipping_method_zones, %i[shipping_method_id zone_id]
+      add_index :spree_shipping_method_zones, %i[shipping_method_id zone_id], unique: true
     end
 
     add_index :spree_shipping_method_zones, :zone_id

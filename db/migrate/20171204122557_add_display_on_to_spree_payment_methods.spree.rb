@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130114053446)
 class AddDisplayOnToSpreePaymentMethods < ActiveRecord::Migration[4.2]
   def self.up

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130326175857)
 class AddStockLocationToRma < ActiveRecord::Migration[4.2]
   def change

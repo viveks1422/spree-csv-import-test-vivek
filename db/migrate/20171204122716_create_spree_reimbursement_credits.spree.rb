@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140808184039)
 class CreateSpreeReimbursementCredits < ActiveRecord::Migration[4.2]
   def change

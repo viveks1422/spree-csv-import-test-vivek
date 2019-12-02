@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20150324104002)
 class RemoveUserIndexFromSpreeStateChanges < ActiveRecord::Migration[4.2]
   def up
     if index_exists? :spree_state_changes, :user_id
       remove_index :spree_state_changes, :user_id
     end
-
   end
 
   def down

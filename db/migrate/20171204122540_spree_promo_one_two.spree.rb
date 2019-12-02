@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20120831092359)
 class SpreePromoOneTwo < ActiveRecord::Migration[4.2]
   def up
@@ -15,7 +17,7 @@ class SpreePromoOneTwo < ActiveRecord::Migration[4.2]
     create_table :spree_promotion_action_line_items, force: true do |t|
       t.references :promotion_action
       t.references :variant
-      t.integer    :quantity,            default: 1
+      t.integer    :quantity, default: 1
     end
 
     create_table :spree_promotion_actions, force: true do |t|

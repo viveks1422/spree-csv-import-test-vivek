@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130806022521)
 class DropSpreeMailMethods < ActiveRecord::Migration[4.2]
   def up

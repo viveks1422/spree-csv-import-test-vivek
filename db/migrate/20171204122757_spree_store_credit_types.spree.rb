@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20150727191614)
 class SpreeStoreCreditTypes < ActiveRecord::Migration[4.2]
   def up

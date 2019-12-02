@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170727103056)
 class RenameTrackerKindField < ActiveRecord::Migration[5.1]
   def change

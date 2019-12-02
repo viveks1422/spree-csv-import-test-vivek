@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170320145518)
 class AddUniqueIndexOnNumberToSpreeReimbursements < ActiveRecord::Migration[5.0]
   def change
@@ -10,7 +12,9 @@ class AddUniqueIndexOnNumberToSpreeReimbursements < ActiveRecord::Migration[5.0]
         reimbursement.save
       end
 
-      remove_index :spree_reimbursements, :number if index_exists?(:spree_reimbursements, :number)
+      if index_exists?(:spree_reimbursements, :number)
+        remove_index :spree_reimbursements, :number
+      end
       add_index :spree_reimbursements, :number, unique: true
     end
   end

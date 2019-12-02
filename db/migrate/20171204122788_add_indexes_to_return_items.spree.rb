@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170331120125)
 class AddIndexesToReturnItems < ActiveRecord::Migration[5.0]
   def change
@@ -9,4 +11,3 @@ class AddIndexesToReturnItems < ActiveRecord::Migration[5.0]
     add_index :spree_return_items, :override_reimbursement_type_id
   end
 end
-

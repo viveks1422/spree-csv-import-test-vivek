@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140124023232)
 class RenameActivatorIdInRulesAndActionsToPromotionId < ActiveRecord::Migration[4.2]
   def change

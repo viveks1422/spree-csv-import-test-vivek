@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140203161722)
 class AddApproverIdAndApprovedAtToOrders < ActiveRecord::Migration[4.2]
   def change

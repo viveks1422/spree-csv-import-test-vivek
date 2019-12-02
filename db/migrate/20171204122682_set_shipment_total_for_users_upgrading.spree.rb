@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20140601011216)
 class SetShipmentTotalForUsersUpgrading < ActiveRecord::Migration[4.2]
   def up

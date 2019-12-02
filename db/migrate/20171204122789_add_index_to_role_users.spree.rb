@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170331121725)
 class AddIndexToRoleUsers < ActiveRecord::Migration[5.0]
   def change
-
     duplicates = Spree::RoleUser.group(:role_id, :user_id).having('sum(1) > 1').size
 
     duplicates.each do |f|
@@ -11,9 +12,9 @@ class AddIndexToRoleUsers < ActiveRecord::Migration[5.0]
       roles.map(&:destroy)
     end
 
-    if index_exists? :spree_role_users, [:role_id, :user_id]
-      remove_index :spree_role_users, [:role_id, :user_id]
-      add_index :spree_role_users, [:role_id, :user_id], unique: true
+    if index_exists? :spree_role_users, %i[role_id user_id]
+      remove_index :spree_role_users, %i[role_id user_id]
+      add_index :spree_role_users, %i[role_id user_id], unique: true
     end
   end
 end
