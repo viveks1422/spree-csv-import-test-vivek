@@ -1,0 +1,13 @@
+#email-header
+	%h1 Product import notification
+#email-body
+	%strong="Hi,"
+	%br
+	%br
+	%p="Your product CSV imported with #{@errors.size} errors"
+	-if @errors.present?
+		%p
+			%strong=@errors_html.html_safe
+#email-footer
+	%strong
+		Regards
