@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       post '/upload_csv' => 'products#upload_csv'
     end
   end
+  mount ActionCable.server => '/cable'
 end

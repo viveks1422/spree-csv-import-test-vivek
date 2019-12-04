@@ -13,7 +13,7 @@ class ProductService
            # sku = parameterize_string(csv_has_row["name"])
            if trim_string(csv_has_row['name']).blank? || trim_string(csv_has_row['category']).blank?
              next
-        end
+          end
 
            # Shipping category we can set to any shipping category if present in CSV file but as in CSV there is no shiiping category we can use default
            shipping_category_id = Spree::ShippingCategory.find_or_create_by(name: 'Default').try(:id)
@@ -82,6 +82,11 @@ class ProductService
     # Notification email when import complated
     ProductMailer.products_import_completed(admin_email, import_errors).deliver!
     # Live push notificaiton
+    # Developer note we can use this live notification
+    # ActionCable.server.broadcast('notification_channel',notification_data: { 
+    #                               message: "CSV Import is completed please check your email by email.",
+    #                               alert_class: 'alert-info' 
+    #                             })
   end
 
   def trim_string(input_string)
