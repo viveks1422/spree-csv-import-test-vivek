@@ -38,8 +38,6 @@ GEM
       activemodel (= 5.1.4)
       activesupport (= 5.1.4)
       arel (~> 8.0)
-    activerecord-import (1.0.3)
-      activerecord (>= 3.2)
     activesupport (5.1.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
@@ -86,9 +84,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    capybara-email (3.0.1)
-      capybara (>= 2.4, < 4.0)
-      mail
     carmen (1.0.2)
       activesupport (>= 3.0.0)
     childprocess (3.0.0)
@@ -498,39 +493,37 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-import
-  annotate
-  bullet
+  annotate (~> 3.0.3)
+  bullet (~> 6.0.2)
   byebug
-  capybara
-  capybara-email
+  capybara (~> 3.29.0)
   coffee-rails (~> 4.2)
-  database_cleaner
+  database_cleaner (~> 1.7.0)
   devise (~> 4.4.0)
-  factory_bot_rails
-  figaro
-  haml-rails
+  factory_bot_rails (~> 5.1.1)
+  figaro (~> 1.1.1)
+  haml-rails (~> 2.0.1)
   jbuilder (~> 2.5)
-  letter_opener
+  letter_opener (~> 1.7.0)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.4)
-  redis
-  rspec-rails
-  rubocop
-  rubycritic
+  redis (~> 4.1.3)
+  rspec-rails (~> 3.9.0)
+  rubocop (~> 0.77.0)
+  rubycritic (~> 4.2.2)
   sass-rails (~> 5.0)
-  selenium-webdriver
-  shoulda-matchers
-  sidekiq
+  selenium-webdriver (~> 3.142.6)
+  shoulda-matchers (~> 4.1.2)
+  sidekiq (~> 6.0.3)
   spree (~> 3.4.0)
   spree_auth_devise (~> 3.4)
   spree_gateway (~> 3.3)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  webdrivers
+  webdrivers (~> 4.1.3)
 
 RUBY VERSION
    ruby 2.5.3p105
