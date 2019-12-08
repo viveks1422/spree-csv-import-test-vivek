@@ -16,7 +16,7 @@ RSpec.feature 'Import Product CSV', type: :feature do
   describe 'Testing spree product CSV import' do
     context 'Admin user login, import product CSV and logout' do
       scenario 'Goto sigin page to login as admin goto dashboard and upload sample.csv to import products and variants' do
-        visit '/admin/login'
+        visit '/login'
         expect(page).to have_content('Login as Existing Customer')
         within find('#new_spree_user') do
           fill_in 'spree_user_email', with: @spree_admin.email.to_s
@@ -26,6 +26,7 @@ RSpec.feature 'Import Product CSV', type: :feature do
         expect(current_path).to eq('/')
         expect(page).to have_text('Logged in successfully')
         # Visit admin products page there you will see option for CSV import
+        visit '/admin/products'
         click_link('import_csv_product')
         expect(current_path).to eq('/admin/import_csv')
         # Important ******  CSV test with sample.csv
