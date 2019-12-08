@@ -8,6 +8,7 @@ class ProductService
     begin
          CSV.read(csv_file_path, headers: true, header_converters: ->(h) { h.try(:downcase) }, col_sep: ';', skip_blanks: true).each_with_index do |row, index|
            # convert to hash
+
            csv_has_row = row.to_hash
            # parameterize name for SKU
            # sku = parameterize_string(csv_has_row["name"])
@@ -54,8 +55,11 @@ class ProductService
            option_values = default_option_values(color.id, size.id)
 
            option_values.each do |option_value|
+              # byebug
              variant_sku = "#{spree_product.id}-#{parameterize_string(option_value[:name])}"
              spree_variant = Spree::Variant.find_or_initialize_by(product_id: spree_product.id, sku: variant_sku)
+             # stock location
+             stock_location = Spree::StockLocation.find_or_create_by(name: 'default') # this we can set via CSV file
              # Cost currency
              spree_variant.cost_currency = 'USD' # Developer note: CSV column can be added csv_has_row["currency"]
              spree_product.update_attribute(:cost_currency, 'USD') # Developer note cost current can be updated to spree product
@@ -66,6 +70,9 @@ class ProductService
              sti = spree_variant.stock_items.first_or_initialize
              sti.backorderable = false
              sti.count_on_hand = trim_string(csv_has_row['stock_total'])
+             # setting up stock location id
+             sti.stock_location_id = stock_location.id
+             sti.save
 
              Spree::OptionValueVariant.find_or_create_by(option_value_id: option_value.id, variant_id: spree_variant.id)
              spree_variant.save!
@@ -87,6 +94,8 @@ class ProductService
     #                               message: "CSV Import is completed please check your email by email.",
     #                               alert_class: 'alert-info' 
     #                             })
+
+    {success: import_errors.blank?, errors: import_errors}
   end
 
   def trim_string(input_string)

@@ -16,12 +16,17 @@ Spree::Admin::ProductsController.class_eval do
 
         if Rails.env.test?
           product_service = ProductService.new
-          csv_import_error = product_service.import_csv(csv_file_path, admin_email)
-
+          csv_import_resp = product_service.import_csv(csv_file_path, admin_email)
+          if csv_import_resp[:errors].present?
+            flash[:error] = csv_import_resp[:errors].join(', ')
+          else
+            flash[:notice] = "CSV product was updated successfully"
+          end
         else
           ProductImportWorker.perform_async(csv_file_path, admin_email)
-   end
-        redirect_to admin_products_path, notice: 'CSV Import is in progress, once it gets completed notification will be sent by email.'
+          flash[:notice] = 'CSV Import is in progress, once it gets completed notification will be sent by email.'
+        end
+        redirect_to admin_products_path
       end
     end
   end

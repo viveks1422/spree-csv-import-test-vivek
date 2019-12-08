@@ -502,7 +502,7 @@ DEPENDENCIES
   annotate
   bullet
   byebug
-  capybara (>= 2.15)
+  capybara
   capybara-email
   coffee-rails (~> 4.2)
   database_cleaner
