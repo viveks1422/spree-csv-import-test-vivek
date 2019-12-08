@@ -14,9 +14,7 @@ Spree::Admin::ProductsController.class_eval do
         csv_file_path = params[:csv_file].path
         product_service = ProductService.new
         # CSV file validation
-        unless product_service.is_valid_csv?(csv_file_path)
-          flash[:error] = 'Wrong file format. Please upload CSV file.'
-        else
+        if product_service.is_valid_csv?(csv_file_path)
           admin_email = current_spree_user.try(:email)
           if Rails.env.test?
             csv_import_resp = product_service.import_csv(csv_file_path, admin_email)
@@ -29,6 +27,8 @@ Spree::Admin::ProductsController.class_eval do
             ProductImportWorker.perform_async(csv_file_path, admin_email)
             flash[:notice] = 'CSV Import is in progress, once it gets completed notification will be sent by email.'
           end
+        else
+          flash[:error] = 'Wrong file format. Please upload CSV file.'
         end
         redirect_to admin_products_path
       end

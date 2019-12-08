@@ -6,7 +6,7 @@ class ProductService
   def import_csv(csv_file_path, admin_email)
     csv_import_error = []
     begin
-        CSV.read(csv_file_path, headers: true, header_converters: ->(h) { h.try(:downcase) }, col_sep: ';', skip_blanks: true).each_with_index do |row, index|
+         CSV.read(csv_file_path, headers: true, header_converters: ->(h) { h.try(:downcase) }, col_sep: ';', skip_blanks: true).each_with_index do |row, index|
            # convert to hash
 
            csv_has_row = row.to_hash
@@ -112,6 +112,6 @@ class ProductService
   end
 
   def is_valid_csv?(csv_file_path)
-    csv_file_path.split('.').last.to_s.downcase == 'csv' 
+    csv_file_path.split('.').last.to_s.downcase == 'csv'
   end
 end
