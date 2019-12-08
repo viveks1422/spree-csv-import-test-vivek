@@ -6,7 +6,7 @@ class ProductService
   def import_csv(csv_file_path, admin_email)
     csv_import_error = []
     begin
-         CSV.read(csv_file_path, headers: true, header_converters: ->(h) { h.try(:downcase) }, col_sep: ';', skip_blanks: true).each_with_index do |row, index|
+        CSV.read(csv_file_path, headers: true, header_converters: ->(h) { h.try(:downcase) }, col_sep: ';', skip_blanks: true).each_with_index do |row, index|
            # convert to hash
 
            csv_has_row = row.to_hash
@@ -89,11 +89,11 @@ class ProductService
     # Notification email when import complated
     ProductMailer.products_import_completed(admin_email, import_errors).deliver!
     # Live push notificaiton
-    # Developer note we can use this live notification
-    # ActionCable.server.broadcast('notification_channel',notification_data: {
+    # Developer note: we can use this live notification
+    # ActionCable.server.broadcast('notification_channel', notification_data: {
     #                               message: "CSV Import is completed please check your email by email.",
     #                               alert_class: 'alert-info'
-    #                             })
+    #                             });
 
     { success: import_errors.blank?, errors: import_errors }
   end
@@ -109,5 +109,9 @@ class ProductService
   def default_option_values(color_id, size_id)
     # Default option type value
     [{ name: 'Small', presentation: 'S', option_type_id: size_id }, { name: 'Medium', presentation: 'M', option_type_id: size_id }, { name: 'Large', presentation: 'L', option_type_id: size_id }, { name: 'Extra Large', presentation: 'XL', option_type_id: size_id }, { name: 'Red', presentation: 'Red', option_type_id: color_id }, { name: 'Green', presentation: 'Green', option_type_id: color_id }, { name: 'Blue', presentation: 'Blue', option_type_id: color_id }].collect { |option_value_hash| Spree::OptionValue.find_or_create_by(option_value_hash) }
+  end
+
+  def is_valid_csv?(csv_file_path)
+    csv_file_path.split('.').last.to_s.downcase == 'csv' 
   end
 end
