@@ -1,0 +1,22 @@
+name,description,color,size,cost_price,price,availability_date,slug,shipping_category,stock_total,stock_location,category
+Ruby on Rails Bag,Animi officia aut amet molestiae atque excepturi. Placeat est cum occaecati molestiae quia. Ut soluta ipsum doloremque perferendis eligendi voluptas voluptatum.,Red,Small:S,18.99,"22,99",2017-12-04T14:55:22.913Z,ruby-on-rails-bag,Default,15,Default,Bags
+Spree Bag,Rerum quaerat autem non nihil quo laborum aut hic. Iure adipisci neque eum qui dolor. Velit sed molestias nostrum et dolore. Amet sed repellendus quod et ad.,green,,20.99,"25,99",2017-12-04T14:55:22.913Z,spree-bag,default,5,default,Bags
+Spree Tote,Consequuntur quibusdam repellendus quia non. Iste et pariatur nulla fugit. In ipsum accusantium quasi mollitia et eos. Ullam veniam quis ut adipisci est autem molestiae eos. Ab necessitatibus et rerum quasi quia debitis eum.,blue,large:L,,"14,99",2017-12-30T14:55:22.913Z,spree-tote,,20,,Bags
+Spree Bag,Rerum quaerat autem non nihil quo laborum aut hic. Iure adipisci neque eum qui dolor. Velit sed molestias nostrum et dolore. Amet sed repellendus quod et ad.,Red,Small:S,20.99,"25,99",2017-12-04T14:55:22.913Z,spree-bag,,15,,Bags
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,

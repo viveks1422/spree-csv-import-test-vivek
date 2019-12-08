@@ -29,7 +29,8 @@ RSpec.feature 'Import Product CSV', type: :feature do
         visit '/admin/products'
         click_link('import_csv_product')
         expect(current_path).to eq('/admin/import_csv')
-        # select CSV
+        #Important ******  CSV test with sample.csv
+        # select sample CSV given for test
         within find('#upload_product_csv') do
           attach_file('csv_file', Rails.root + 'sample.csv')
         end
@@ -43,8 +44,27 @@ RSpec.feature 'Import Product CSV', type: :feature do
         expect(action_mailer.size).to eq(1)
         # check email subject line
         expect(action_mailer.first.subject).to eq('Notification: Product CSV import completed.')
-        click_on(class: 'dropdown-toggle')
+
+        #Important ******  CSV test with products_with_variants.csv
+        # select products_with_variants CSV to modify upload with variants
+        # Reset mailer deliveries
+        action_mailer = ActionMailer::Base.deliveries = []
+        visit('/admin/import_csv')
+        within find('#upload_product_csv') do
+          attach_file('csv_file', Rails.root + 'products_with_variants.csv')
+        end
+        click_button 'Import'
+        expect(page).to have_content('CSV product was updated successfully')
+        spree_products = Spree::Product.all
+        # To check product uploaded successfully
+        expect(spree_products.size).to eq(3)
+        # To test email delivery
+        action_mailer = ActionMailer::Base.deliveries
+        expect(action_mailer.size).to eq(1)
+        # check email subject line
+        expect(action_mailer.first.subject).to eq('Notification: Product CSV import completed.')
         # Logout
+        click_on(class: 'dropdown-toggle')
         click_link 'Logout'
         expect(current_path).to eq('/')
         expect(page).to have_text('Signed out successfully.')
