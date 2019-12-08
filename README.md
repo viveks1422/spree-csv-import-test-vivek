@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-ruby '2.5.3',  Rails 5.1.4 and PostgreSQL >= 9.6.15
+ruby '2.5.3',  Rails 5.1.4, Redis and PostgreSQL >= 9.6.15
 ```
 
 ### Installing
@@ -40,37 +40,26 @@ bundle install
 4. Database operations
 
 ```
-	1. bundle exec rails db:create 
-	2. bundle exec rails db:migrate
-	3. bundle exec rails db:seed
+1. bundle exec rails db:create 
+2. bundle exec rails db:migrate
+3. bundle exec rails db:seed
+
+```
+## Running background job
+
+Run the following command to start sidekiq for background jobs using development enviornment and add within deployment script for production enviornment.
+
+```
+bundle exec sidekiq
 ```
 
 ## Running the tests
 
-Goto app directory and run following command to run automated testing using Rspec, capybara and chrome drivers.
+Run following command to run integration tests using Rspec, capybara and chrome drivers.
 
 ```
-	rspec spec/features/
+rspec spec/features/
 ```
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
@@ -79,4 +68,3 @@ Add additional notes about how to deploy this on a live system
 ## Versioning
 
 We use [Github](https://github.com/) for versioning.
-ge

@@ -16,7 +16,7 @@ Spree::Admin::ProductsController.class_eval do
         # CSV file validation
         if product_service.is_valid_csv?(csv_file_path)
           admin_email = current_spree_user.try(:email)
-          if Rails.env.test? || Rails.env.development?
+          if Rails.env.test?
             csv_import_resp = product_service.import_csv(csv_file_path, admin_email)
             if csv_import_resp[:errors].present?
               flash[:error] = csv_import_resp[:errors].join(', ')
