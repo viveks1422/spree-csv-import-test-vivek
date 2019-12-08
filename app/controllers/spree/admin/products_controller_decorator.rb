@@ -20,7 +20,7 @@ Spree::Admin::ProductsController.class_eval do
           if csv_import_resp[:errors].present?
             flash[:error] = csv_import_resp[:errors].join(', ')
           else
-            flash[:notice] = "CSV product was updated successfully"
+            flash[:notice] = 'CSV product was updated successfully'
           end
         else
           ProductImportWorker.perform_async(csv_file_path, admin_email)

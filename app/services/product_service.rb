@@ -55,7 +55,7 @@ class ProductService
            option_values = default_option_values(color.id, size.id)
 
            option_values.each do |option_value|
-              # byebug
+             # byebug
              variant_sku = "#{spree_product.id}-#{parameterize_string(option_value[:name])}"
              spree_variant = Spree::Variant.find_or_initialize_by(product_id: spree_product.id, sku: variant_sku)
              # stock location
@@ -90,12 +90,12 @@ class ProductService
     ProductMailer.products_import_completed(admin_email, import_errors).deliver!
     # Live push notificaiton
     # Developer note we can use this live notification
-    # ActionCable.server.broadcast('notification_channel',notification_data: { 
+    # ActionCable.server.broadcast('notification_channel',notification_data: {
     #                               message: "CSV Import is completed please check your email by email.",
-    #                               alert_class: 'alert-info' 
+    #                               alert_class: 'alert-info'
     #                             })
 
-    {success: import_errors.blank?, errors: import_errors}
+    { success: import_errors.blank?, errors: import_errors }
   end
 
   def trim_string(input_string)

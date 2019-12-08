@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ffaker'
 FactoryBot.define do
   factory :spree_user, class: Spree::User do

@@ -13,7 +13,7 @@ RSpec.feature 'Import Product CSV', type: :feature do
     ActionMailer::Base.deliveries = []
   end
 
-  describe "Testing spree product CSV import" do
+  describe 'Testing spree product CSV import' do
     context 'Admin user login, import product CSV and logout' do
       scenario 'Goto sigin page to login as admin goto dashboard and upload sample.csv to import products and variants' do
         visit '/login'
@@ -29,14 +29,14 @@ RSpec.feature 'Import Product CSV', type: :feature do
         visit '/admin/products'
         click_link('import_csv_product')
         expect(current_path).to eq('/admin/import_csv')
-        #select CSV
+        # select CSV
         within find('#upload_product_csv') do
           attach_file('csv_file', Rails.root + 'sample.csv')
         end
         click_button 'Import'
         expect(page).to have_content('CSV product was updated successfully')
         spree_products = Spree::Product.all
-        #To check product uploaded successfully
+        # To check product uploaded successfully
         expect(spree_products.size).to eq(3)
         # To test email delivery
         action_mailer = ActionMailer::Base.deliveries
